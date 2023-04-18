@@ -22,7 +22,8 @@ import HomeIcon from '@mui/icons-material/Home';
 import InfoIcon from '@mui/icons-material/Info';
 import InventoryIcon from '@mui/icons-material/Inventory';
 import PhoneIcon from '@mui/icons-material/Phone';
-import logo from '../../assets/img/logobg.png'
+
+const logo =  "https://firebasestorage.googleapis.com/v0/b/portfolio-website-81b2a.appspot.com/o/logobg.png?alt=media&token=eeaa5f15-edf4-482e-b71c-59f5610d5c56"
 
 const drawerWidth = 240;
 const navItems = [
