@@ -23,9 +23,28 @@ const AppContext = createContext(initialState);
 const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(appReducer, initialState);
 
+   // axios
+   const authFetch = axios.create({
+    baseURL: '/api',
+  });
+  // request
+
+  // response
+
+  authFetch.interceptors.response.use(
+    (response) => {
+      return response;
+    },
+    (error) => {
+      // console.log(error.response)
+      return Promise.reject(error);
+    }
+  );
+
+
   const getProjects = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/getMyProjects');
+      const response = await authFetch.get('/getMyProjects');
       dispatch({
         type: GET_PROJECTS,
         payload: response.data,
@@ -38,7 +57,7 @@ const AppProvider = ({ children }) => {
 
   const getProjectDetails = async (projectId) => {
     try {
-      const response = await axios.get(`http://localhost:5000/getMyProjects/${projectId}`);
+      const response = await authFetch.get(`/getMyProject/${projectId}`);
       dispatch({
         type: GET_PROJECT_DETAILS,
         payload: response.data,
@@ -50,7 +69,7 @@ const AppProvider = ({ children }) => {
 
   const getMyDetails = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/getMyDetails`);
+      const response = await authFetch.get(`/getMyDetails`);
       dispatch({
         type: GET_MY_DETAILS,
         payload: response.data,
@@ -62,7 +81,7 @@ const AppProvider = ({ children }) => {
 
    const sendContactForm = async (formData) => {
     try {
-      const response = await axios.post('http://localhost:5000/contact', formData);
+      const response = await authFetch.post('/contact', formData);
       dispatch({
         type: SEND_CONTACT_SUCCESS,
         payload: response.data,
@@ -74,7 +93,7 @@ const AppProvider = ({ children }) => {
 
   const getSocialLinks = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/socialLinks`);
+      const response = await authFetch.get(`/socialLinks`);
       dispatch({
         type: GET_SOCIAL_LINKES,
         payload: response.data,

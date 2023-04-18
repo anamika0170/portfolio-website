@@ -21,26 +21,9 @@ const db = admin.database();
 // Use body-parser middleware to parse incoming JSON data
 app.use(bodyParser.json());
 
-// Define an API endpoint to create new user records
-app.post("/users", async (req, res) => {
-  try {
-    const { name, email } = req.body;
-
-    // Create a new record in the "users" collection
-    const ref = db.ref("users");
-    const newRecordRef = ref.push({ name, email });
-
-    // Return the ID of the new record
-    res.json({ id: newRecordRef.key });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: "Server error" });
-  }
-});
-
 
 // Define your API endpoint to get all projects
-app.get('/getMyDetails', async (req, res) => {
+app.get('/api/getMyDetails', async (req, res) => {
   try {
     const projectsRef = admin.database().ref('myDetails');
     const snapshot = await projectsRef.once('value');
@@ -53,7 +36,7 @@ app.get('/getMyDetails', async (req, res) => {
 });
 
 //socialLinks
-app.get('/socialLinks', async (req, res) => {
+app.get('/api/socialLinks', async (req, res) => {
   try {
     const projectsRef = admin.database().ref('socialLinks');
     const snapshot = await projectsRef.once('value');
@@ -66,7 +49,7 @@ app.get('/socialLinks', async (req, res) => {
 });
 
 // Define your API endpoint to get all projects
-app.get('/getMyProjects', async (req, res) => {
+app.get('/api/getMyProjects', async (req, res) => {
   try {
     const projectsRef = admin.database().ref('myProjects');
     const snapshot = await projectsRef.once('value');
@@ -79,10 +62,10 @@ app.get('/getMyProjects', async (req, res) => {
 });
 
 // Define your API endpoint to get a specific project's details
-app.get('/getMyProjects/:Id', (req, res) => {
+app.get('/api/getMyProjects/:Id', (req, res) => {
   const Id = req.params.Id;
 
-  db.ref('myProjects/').orderByChild('Id').equalTo(Id).once('value')
+  db.ref('/api/myProjects/').orderByChild('Id').equalTo(Id).once('value')
     .then(snapshot => {
       const users = snapshot.val();
       const user = Object.values(users)[0];
@@ -110,7 +93,7 @@ const mailgun = require('mailgun-js')({
   apiKey: '81f79ddaf1273741fde1eb88df810413-2cc48b29-eec0bbaa',
   domain: 'sandbox5bdfe2a16b954bd59b9e96f8afbf9a8b.mailgun.org'
 });
-app.post('/contact', (req, res) => {
+app.post('/api/contact', (req, res) => {
   const { name, email, message } = req.body;
 
   const data = {
