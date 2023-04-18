@@ -1,0 +1,35 @@
+.projectDetails {
+    padding: 120px 0;
+    background: #414a52;
+    padding-bottom: 250px;
+    color: white;
+  }
+  .projectDetails .desp {
+    margin-left: 10px;
+  }
+  .desp h3{
+    font-weight: bold;
+  }
+  .skill{
+    color: white !important;
+  }
+  .projectDetails h2{
+    color: white;
+  }
+  .viewBTN{
+    background-color:#414a52  !important;
+  }
+  .viewBTN .Link{
+    text-decoration: none;
+    color: #9cf6f6;
+  }
+.projetLink .Link{
+  text-decoration: none;
+  color: #9cf6f6;
+}
+.seeSteps{
+  display: flex;
+    align-items: center;
+    gap: 20px;
+}
+  
