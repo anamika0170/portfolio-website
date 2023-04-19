@@ -9,7 +9,6 @@ import {
   faFacebook,
   faInstagram,
   faLinkedin,
-  faGoogle,
 } from "@fortawesome/free-brands-svg-icons";
 import { useContext } from "react";
 import { AppContext } from "../../context/appContext";

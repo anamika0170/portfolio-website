@@ -3,7 +3,7 @@ import "./project.css";
 import { Container, Grid } from "@mui/material";
 import Button from "@mui/material/Button";
 import { AppContext } from "../../context/appContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ViewImages from "../ViewImages";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -11,6 +11,7 @@ import "aos/dist/aos.css";
 const Projects = () => {
   const { projects, openModal } = useContext(AppContext);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const navigate = useNavigate()
 
   const handlePrev = () => {
     if (currentIndex > 0) {
@@ -44,14 +45,14 @@ const Projects = () => {
               <hr />
             </div>
             <div className="sectionProject">
-              <div className="categories">
+              {/* <div className="categories">
                 <ul className="cat">
                   <li>
                     <ol className="type">
                       <li>
                         <Link
                           to="/projects"
-                          data-filter="*"
+                          // data-filter="*"
                           className="activeView"
                         >
                           View All Projects
@@ -60,7 +61,12 @@ const Projects = () => {
                     </ol>
                   </li>
                 </ul>
-              </div>
+              </div> */}
+             <center>
+             <Button className="viewAll" onClick={()=>navigate('/projects')} variant="contained">
+              View All Projects
+              </Button>
+             </center>
               <Container>
                 <Grid
                   container
@@ -79,7 +85,7 @@ const Projects = () => {
                           />
                           <h3>{item.Name}</h3>
                           <p className="ellipsis">{item.description}</p>
-                          <Link className="link" to={`/project/${item.Id}`}>
+                          <Link className="link" to={`/project/${item._id}`}>
                             View Details
                           </Link>
                         </div>

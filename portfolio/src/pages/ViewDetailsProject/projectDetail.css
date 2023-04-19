@@ -32,4 +32,28 @@
     align-items: center;
     gap: 20px;
 }
-  
+.backButton{
+  position: absolute !important;
+  top: 8px !important;
+  right: 8px !important;
+  color: black !important;
+  background-color: #9cf6f6 !important;
+    border-radius: 10px !important;
+}
+.backText{
+  font-size: 15px !important;
+  padding-left: 10px !important;
+  color: black !important;
+  font-weight: bold !important;
+}
+.projectLink{
+  color: white !important;
+}
+.projectLink:hover{
+  color: #9cf6f6 !important;
+}
+@media screen and (max-width:450px) {
+  .backText{
+    font-size: 12px !important;
+  }
+}

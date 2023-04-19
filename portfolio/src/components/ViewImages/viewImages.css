@@ -46,7 +46,7 @@
     position: absolute !important;
     top: 8px !important;
     right: 8px !important;
-    color: red !important;
+    color: #9cf6f6 !important;
   }
   
   @keyframes loader {

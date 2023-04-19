@@ -13,15 +13,18 @@ import {
   Checkbox,
 } from "@mui/material";
 import "./projectDetail.css";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { AppContext } from "../../context/appContext";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import ViewImages from "../../components/ViewImages";
 import LazyLoad from 'react-lazyload';
+import { IconButton } from "@mui/material";
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 function ProjectDetails() {
   const [showStep, setShowStep] = useState(false);
+  const navigate = useNavigate()
   const { id } = useParams();
   const { getProjectDetails, projectDetails, openModal } =
     useContext(AppContext);
@@ -73,9 +76,11 @@ function ProjectDetails() {
       once: true,
     });
   }, []);
-  console.log("hide", showStep);
   return (
     <div id="projectDetails" className="projectDetails">
+    <IconButton onClick={()=>navigate('/')}  className="backButton">
+          <ArrowBackIcon /><span className="backText">Go Back</span>
+        </IconButton>
       <Container className="container">
         <div className="section-title text-center center">
           <h2>{projectDetails.Name}</h2>
@@ -146,11 +151,7 @@ function ProjectDetails() {
           </Grid>
         </div>
         <div className="seeSteps">
-          <h3>
-            IF YOU WANT TO SEE STEPS TO RUN THE APPLIATION THE CLICK ON BOX OF
-            SHOW
-          </h3>
-          <div>
+        <div>
             <FormGroup>
               <FormControlLabel
                 control={
@@ -169,6 +170,10 @@ function ProjectDetails() {
               />
             </FormGroup>
           </div>
+          <h3>
+          CLICK ON Button , IF YOU WANT TO SEE STEPS TO RUN THE APPLIATION THE 
+            SHOW
+          </h3>
         </div>
 
         {showStep ? (
@@ -190,7 +195,7 @@ function ProjectDetails() {
                         </p>
                         <p>
                           {" "}
-                          <Link to={projectDetails.url}>
+                          <Link className="projectLink" to={projectDetails.url}>
                             {projectDetails.url}
                           </Link>
                         </p>

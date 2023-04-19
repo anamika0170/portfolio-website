@@ -6,6 +6,7 @@ import { AppContext } from "../../context/appContext";
 import AOS from "aos";
 import "aos/dist/aos.css"; // import the styles
 import ViewImages from "../ViewImages";
+import LazyLoad from "react-lazyload";
 
 function About() {
   const { myDetails, openModal } = useContext(AppContext);
@@ -50,16 +51,18 @@ function About() {
           <Grid container spacing={3}>
             <Grid item xs={12} sm={6}>
               <Paper style={styles.paper}>
-                <img
-                  onClick={() => openModal(myDetails.image)}
-                  src={myDetails.image}
-                  className="img-responsive"
-                  alt=""
-                  style={styles.image}
-                />
+                <LazyLoad height={200}>
+                  <img
+                    onClick={() => openModal(myDetails.image)}
+                    src={myDetails.image}
+                    className="img-responsive"
+                    alt=""
+                    style={styles.image}
+                  />
+                </LazyLoad>
               </Paper>
             </Grid>
-            <Grid  item xs={12} sm={6}>
+            <Grid item xs={12} sm={6}>
               <Paper style={{ ...styles.paper, ...styles.text }}>
                 <div className="about-text">
                   <div className={styles.aboutContent}>

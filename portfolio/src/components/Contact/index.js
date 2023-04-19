@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import "./contact.css";
-import { Button, Container } from "@mui/material";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { Alert, Button, Container, Snackbar } from "@mui/material";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { AppContext } from "../../context/appContext";
@@ -14,19 +12,18 @@ const Contact = () => {
     email: "",
     message: "",
   });
+  const [isFormFilled, setFormFilled] = useState(false);
+  const [isNotification, setIsNotification] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     try {
       sendContactForm(userDetails);
-      toast.success("Your Information Sent , Soon i will contact you !", {
-        position: toast.POSITION.TOP_CENTER,
-      });
+      setIsNotification(true);
+      setFormFilled(true);
     } catch (error) {
-      toast.error("opps! message not sent , try after some time ", {
-        position: toast.POSITION.TOP_CENTER,
-        className: "toast-container",
-      });
+      setIsNotification(true);
+      setFormFilled(false);
     }
   };
 
@@ -41,11 +38,36 @@ const Contact = () => {
       once: true,
     });
   }, []);
+
+  const showNotification = () => {
+    return (
+      <>
+        <Snackbar
+          open={isNotification}
+          autoHideDuration={6000}
+          onClose={()=>setIsNotification(false)}
+          anchorOrigin={
+            {
+              vertical:"top",
+              horizontal:"center"
+            }
+          }
+        >
+          {
+            isFormFilled ?
+            <Alert variant="filled" severity="success">Your Information Sent , Soon i will contact you !</Alert>
+            :<Alert variant="filled" severity="error">opps! message not sent , try after some time </Alert>
+          }
+        </Snackbar>
+      </>
+    );
+  };
   return (
     <div id="contact" className="contact">
       <div className="text-center">
         <Container maxWidth="sm">
           <div className="section-title center">
+          {showNotification()}
             <h2>Get In Touch</h2>
             <hr />
           </div>
@@ -138,7 +160,6 @@ const Contact = () => {
           </div>
         </Container>
       </div>
-      <ToastContainer />
     </div>
   );
 };

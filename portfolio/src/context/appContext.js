@@ -36,7 +36,6 @@ const AppProvider = ({ children }) => {
       return response;
     },
     (error) => {
-      // console.log(error.response)
       return Promise.reject(error);
     }
   );
@@ -49,7 +48,6 @@ const AppProvider = ({ children }) => {
         type: GET_PROJECTS,
         payload: response.data,
       });
-      console.log("response.data", response.data)
     } catch (error) {
       console.error(error);
     }
@@ -98,7 +96,6 @@ const AppProvider = ({ children }) => {
         type: GET_SOCIAL_LINKES,
         payload: response.data,
       });
-      console.log("social links", response.data)
     } catch (error) {
       console.error(error);
     }
@@ -106,12 +103,10 @@ const AppProvider = ({ children }) => {
 
   const openModal = (imageUrl) => {
     dispatch({ type: OPEN_MODAL, payload: imageUrl });
-    console.log("props.image",imageUrl)
   };
 
   const openModalImages = (modalImages) => {
     dispatch({ type: OPEN_MODAL, payload: modalImages });
-    console.log("modalImages",modalImages)
   };
 
   const closeModal = () => {

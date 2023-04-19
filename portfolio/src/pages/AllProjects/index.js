@@ -3,15 +3,21 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import { Button, Container } from "@mui/material";
 import { AppContext } from "../../context/appContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./allProjects.css";
 import ViewImages from "../../components/ViewImages";
+import { IconButton } from "@mui/material";
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 export default function AllProjects() {
   const { projects, openModal } = React.useContext(AppContext);
+  const navigate = useNavigate();
 
   return (
     <div className="projects">
+     <IconButton onClick={()=>navigate('/')}  className="backButton">
+          <ArrowBackIcon /><span className="backText">Go Back</span>
+        </IconButton>
       <Container>
         <div className="section-title text-center center">
           <h2>All Projects</h2>
@@ -34,7 +40,7 @@ export default function AllProjects() {
                     />
                     <h3>{project.Name}</h3>
                     <p className="ellipsis">{project.description}</p>
-                    <Link className="link" to={`/project/${project.Id}`}>
+                    <Link className="link" to={`/project/${project._id}`}>
                       View Details
                     </Link>
                   </div>
