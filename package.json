@@ -30,6 +30,7 @@
     "firebase": "^9.19.1",
     "firebase-admin": "^11.6.0",
     "helmet": "^6.1.5",
+    "heroku": "^8.0.5",
     "mailgun-js": "^0.22.0",
     "mongoose": "^7.0.4",
     "morgan": "^1.10.0",
