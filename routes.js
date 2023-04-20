@@ -1,12 +1,15 @@
-const express = require("express");
-const myDetails = require("./models/myDetails.js");
-const MyProjects = require("./models/MyProjects.js");
-const SocialLinks = require("./models/SocialLinks.js");
-const router = express.Router();
-const nodemailer = require("nodemailer");
-const dotenv = require("dotenv");
+import express  from "express";
+import MyProjects  from "./models/MyProjects.js";
+import SocialLinks  from "./models/SocialLinks.js";
+const router =  express.Router();
+import nodemailer  from "nodemailer";
+import dotenv  from "dotenv";
+import mailgun  from "mailgun-js"
+import MyDetails from "./models/MyDetails.js";
+
 dotenv.config();
-const mailgun = require("mailgun-js")({
+
+const mg = mailgun({
   apiKey: process.env.MAILGUN_API_KEY,
   domain: process.env.MAILGUN_DOMAIN,
 });
@@ -19,7 +22,7 @@ router.get("/", (req, res) => {
 //get my details Api
 router.get("/getMyDetails", async (req, res) => {
   try {
-    const Model = await myDetails.findOne();
+    const Model = await MyDetails.findOne();
     res.json(Model);
   } catch (error) {
     res.status(500).send("Server error");
@@ -84,7 +87,7 @@ router.post("/contact", (req, res) => {
       `,
   };
 
-  mailgun.messages().send(data, (error, body) => {
+  mg.messages().send(data, (error, body) => {
     if (error) {
       res.status(500).send("Error sending email");
     } else {
@@ -93,4 +96,4 @@ router.post("/contact", (req, res) => {
   });
 });
 
-module.exports = router;
+export default router

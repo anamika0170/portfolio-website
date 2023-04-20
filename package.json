@@ -2,7 +2,8 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
+  "type": "module",
   "scripts": {
     "install-dependencies": "npm run install-portfolio && npm install",
     "setup-production": "npm run install-portfolio && npm run build-portfolio && npm install",

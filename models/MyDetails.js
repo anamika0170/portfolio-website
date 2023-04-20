@@ -1,19 +1,8 @@
-// import mongoose from 'mongoose';
+import mongoose from 'mongoose';
 
-// const myDetailsSchema = new mongoose.Schema({
-//   Description: String,
-//   Designation: [String],
-//   Name: String,
-//   technicalSkills: [String],
-//   image: String
-// });
+const { Schema } = mongoose;
 
-// export default mongoose.model('MyDetails', myDetailsSchema)
-
-
-const mongoose = require('mongoose');
-
-const ExampleSchema = new mongoose.Schema({
+const MyDetailsSchema = new Schema({
   Description: {
     type: String,
     required: true,
@@ -33,4 +22,6 @@ const ExampleSchema = new mongoose.Schema({
   // Add more fields here as needed
 });
 
-module.exports = mongoose.model('MyDetails', ExampleSchema);
+const MyDetails = mongoose.model('MyDetails', MyDetailsSchema);
+
+export default MyDetails;

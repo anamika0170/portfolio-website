@@ -1,6 +1,8 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
-const SocailLinks = new mongoose.Schema({
+const { Schema } = mongoose;
+
+const SocialLinksSchema = new Schema({
   facebook: {
     type: String,
   },
@@ -13,5 +15,6 @@ const SocailLinks = new mongoose.Schema({
   // Add more fields here as needed
 });
 
-module.exports = mongoose.model('socailLinks', SocailLinks);
+const SocialLinks = mongoose.model('socialLinks', SocialLinksSchema);
 
+export default SocialLinks;
