@@ -68,8 +68,8 @@ const transporter = nodemailer.createTransport({
   port: 465,
   secure: true, // use SSL
   auth: {
-    user: "websiteuse01@gmail.com",
-    pass: "anamika0170@.com",
+    user: "websiteuse.anamika6@gmail.com",
+    pass: "Papa0170@.com",
   },
 });
 
@@ -78,7 +78,7 @@ router.post("/contact", (req, res) => {
 
   const data = {
     from: `${name} ${email}`,
-    to: "websiteuse01@gmail.com",
+    to: "websiteuse.anamika6@gmail.com",
     subject: "New Contact Form Submission",
     text: `
         Name: ${name}
