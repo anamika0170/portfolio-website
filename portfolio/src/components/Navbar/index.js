@@ -90,7 +90,7 @@ function Navbar() {
           offset={-70}
           duration={500}
         >
-          {myDetails.Name}
+        <img style={{height:"8vh",cursor:"pointer"}} src={logo}/>
         </Link>
         <Box>
           <CancelIcon className="cancelIcon"/>
@@ -136,7 +136,7 @@ function Navbar() {
               sx={{ mr: 2, display: { sm: "none" } }}
             >
               <MenuIcon />
-              <Container maxWidth="sm"><img style={{height:"8vh"}} src={logo}/></Container>
+              <img style={{height:"8vh",cursor:"pointer"}} src={logo}/>
             </IconButton>
             <Typography
               variant="h6"
@@ -154,7 +154,7 @@ function Navbar() {
               >
                 {/* {myDetails.Name} */}
                 <LazyLoad height={200}>
-                <img style={{height:"8vh"}} src={logo}/>
+                <img style={{height:"8vh",cursor:"pointer"}} src={logo}/>
                 </LazyLoad>
               </Link>
             </Typography>
