@@ -18,13 +18,12 @@ import { AppContext } from "../../context/appContext";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import ViewImages from "../../components/ViewImages";
-import LazyLoad from 'react-lazyload';
 import { IconButton } from "@mui/material";
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 function ProjectDetails() {
   const [showStep, setShowStep] = useState(false);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const { id } = useParams();
   const { getProjectDetails, projectDetails, openModal } =
     useContext(AppContext);
@@ -64,9 +63,10 @@ function ProjectDetails() {
   }, []);
   return (
     <div id="projectDetails" className="projectDetails">
-    <IconButton onClick={()=>navigate('/')}  className="backButton">
-          <ArrowBackIcon /><span className="backText">Go Back</span>
-        </IconButton>
+      <IconButton onClick={() => navigate("/")} className="backButton">
+        <ArrowBackIcon />
+        <span className="backText">Go Back</span>
+      </IconButton>
       <Container className="container">
         <div className="section-title text-center center">
           <h2>{projectDetails.Name}</h2>
@@ -76,13 +76,13 @@ function ProjectDetails() {
           <Grid container spacing={3}>
             <Grid item xs={12} sm={6}>
               <Paper style={styles.paper}>
-              <LazyLoad height={200}><img
+                <img
                   onClick={() => openModal(projectDetails.image)}
                   src={projectDetails.image}
                   className="img-responsive"
                   alt=""
                   style={styles.image}
-                /></LazyLoad>
+                />
               </Paper>
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -137,7 +137,7 @@ function ProjectDetails() {
           </Grid>
         </div>
         <div className="seeSteps">
-        <div>
+          <div>
             <FormGroup>
               <FormControlLabel
                 control={
@@ -157,7 +157,7 @@ function ProjectDetails() {
             </FormGroup>
           </div>
           <h3>
-          CLICK ON Button , IF YOU WANT TO SEE STEPS TO RUN THE APPLIATION THE 
+            CLICK ON Button , IF YOU WANT TO SEE STEPS TO RUN THE APPLIATION THE
             SHOW
           </h3>
         </div>
@@ -166,7 +166,7 @@ function ProjectDetails() {
           <>
             <div style={styles.root}>
               <Grid container spacing={3}>
-                <Grid item xs={12} sm={6} >
+                <Grid item xs={12} sm={6}>
                   <Paper style={{ ...styles.paper, ...styles.text }}>
                     <div className="desp">
                       <div className={styles.aboutContent}>
@@ -191,13 +191,13 @@ function ProjectDetails() {
                 </Grid>
                 <Grid item xs={12} sm={6} data-aos="fade-left">
                   <Paper style={styles.paper}>
-                    <LazyLoad height={200}><img
+                    <img
                       onClick={() => openModal(projectDetails.image1)}
                       src={projectDetails.image1}
                       className="img-responsive"
                       alt=""
                       style={styles.image}
-                    /></LazyLoad>
+                    />
                   </Paper>
                 </Grid>
               </Grid>
@@ -206,7 +206,6 @@ function ProjectDetails() {
               <Grid container spacing={3}>
                 <Grid item xs={12} sm={6} data-aos="fade-right">
                   <Paper style={styles.paper}>
-                    <LazyLoad height={200}>
                     <img
                       onClick={() => openModal(projectDetails.image2)}
                       src={projectDetails.image2}
@@ -214,7 +213,6 @@ function ProjectDetails() {
                       alt=""
                       style={styles.image}
                     />
-                    </LazyLoad>
                   </Paper>
                 </Grid>
                 <Grid item xs={12} sm={6} data-aos="fade-left">
@@ -251,7 +249,6 @@ function ProjectDetails() {
                 </Grid>
                 <Grid item xs={12} sm={6} data-aos="fade-left">
                   <Paper style={styles.paper}>
-                    <LazyLoad height={200}>
                     <img
                       onClick={() => openModal(projectDetails.image3)}
                       src={projectDetails.image3}
@@ -259,7 +256,6 @@ function ProjectDetails() {
                       alt=""
                       style={styles.image}
                     />
-                    </LazyLoad>
                   </Paper>
                 </Grid>
               </Grid>
@@ -268,7 +264,6 @@ function ProjectDetails() {
               <Grid container spacing={3}>
                 <Grid item xs={12} sm={6} data-aos="fade-right">
                   <Paper style={styles.paper}>
-                    <LazyLoad height={200}>
                     <img
                       onClick={() => openModal(projectDetails.image4)}
                       src={projectDetails.image4}
@@ -276,7 +271,6 @@ function ProjectDetails() {
                       alt=""
                       style={styles.image}
                     />
-                    </LazyLoad>
                   </Paper>
                 </Grid>
                 <Grid item xs={12} sm={6} data-aos="fade-left">
@@ -298,7 +292,7 @@ function ProjectDetails() {
           </>
         ) : null}
       </Container>
-      <ViewImages/>
+      <ViewImages />
     </div>
   );
 }

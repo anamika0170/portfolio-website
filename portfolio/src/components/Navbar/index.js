@@ -17,37 +17,37 @@ import "./navbar.css";
 import { Container } from "@mui/material";
 import { Link, animateScroll as scroll } from "react-scroll";
 import { AppContext } from "../../context/appContext";
-import CancelIcon from '@mui/icons-material/Cancel';
-import HomeIcon from '@mui/icons-material/Home';
-import InfoIcon from '@mui/icons-material/Info';
-import InventoryIcon from '@mui/icons-material/Inventory';
-import PhoneIcon from '@mui/icons-material/Phone';
-import LazyLoad from 'react-lazyload';
+import CancelIcon from "@mui/icons-material/Cancel";
+import HomeIcon from "@mui/icons-material/Home";
+import InfoIcon from "@mui/icons-material/Info";
+import InventoryIcon from "@mui/icons-material/Inventory";
+import PhoneIcon from "@mui/icons-material/Phone";
 
-const logo =  "https://firebasestorage.googleapis.com/v0/b/portfolio-website-81b2a.appspot.com/o/logobg.png?alt=media&token=eeaa5f15-edf4-482e-b71c-59f5610d5c56"
+const logo =
+  "https://firebasestorage.googleapis.com/v0/b/portfolio-website-81b2a.appspot.com/o/logobg.png?alt=media&token=eeaa5f15-edf4-482e-b71c-59f5610d5c56";
 
 const drawerWidth = 240;
 const navItems = [
   {
-    id:"home",
-    link:"Home",
-    icon:<HomeIcon/>
+    id: "home",
+    link: "Home",
+    icon: <HomeIcon />,
   },
   {
-    id:"about",
-    link:"About",
-    icon:<InfoIcon/>
+    id: "about",
+    link: "About",
+    icon: <InfoIcon />,
   },
   {
-    id:"projects",
-    link:"Projects",
-    icon:<InventoryIcon/>
+    id: "projects",
+    link: "Projects",
+    icon: <InventoryIcon />,
   },
   {
-    id:"contact",
-    link:"Contact",
-    icon:<PhoneIcon/>
-  }
+    id: "contact",
+    link: "Contact",
+    icon: <PhoneIcon />,
+  },
 ];
 
 function Navbar() {
@@ -80,7 +80,15 @@ function Navbar() {
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <Typography variant="h6" sx={{ my: 2, display:'flex' , justifyContent:'space-evenly' , alignItems:'center' }}>
+      <Typography
+        variant="h6"
+        sx={{
+          my: 2,
+          display: "flex",
+          justifyContent: "space-evenly",
+          alignItems: "center",
+        }}
+      >
         <Link
           activeClass="active"
           className="nav-link"
@@ -90,10 +98,10 @@ function Navbar() {
           offset={-70}
           duration={500}
         >
-        <img style={{height:"8vh",cursor:"pointer"}} src={logo}/>
+          <img style={{ height: "8vh", cursor: "pointer" }} src={logo} />
         </Link>
         <Box>
-          <CancelIcon className="cancelIcon"/>
+          <CancelIcon className="cancelIcon" />
         </Box>
       </Typography>
       <Divider />
@@ -136,7 +144,7 @@ function Navbar() {
               sx={{ mr: 2, display: { sm: "none" } }}
             >
               <MenuIcon />
-              <img style={{height:"8vh",cursor:"pointer"}} src={logo}/>
+              <img style={{ height: "8vh", cursor: "pointer" }} src={logo} />
             </IconButton>
             <Typography
               variant="h6"
@@ -153,15 +161,13 @@ function Navbar() {
                 duration={500}
               >
                 {/* {myDetails.Name} */}
-                <LazyLoad height={200}>
-                <img style={{height:"8vh",cursor:"pointer"}} src={logo}/>
-                </LazyLoad>
+
+                <img style={{ height: "8vh", cursor: "pointer" }} src={logo} />
               </Link>
             </Typography>
             <Box sx={{ display: { xs: "none", sm: "block" } }}>
               {navItems.map((item) => (
                 <Button key={item.id} sx={{ color: "#fff" }}>
-                
                   <Link
                     activeClass="active"
                     className="nav-link"
@@ -192,7 +198,7 @@ function Navbar() {
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,
-              backgroundColor:"#333"
+              backgroundColor: "#333",
             },
           }}
         >
