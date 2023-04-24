@@ -136,24 +136,24 @@ const Contact = () => {
             <div className="social">
               <ul>
                 <li>
-                  <a href="#">
+                  {/* <a href="#"> */}
                     <i className="fa fa-facebook"></i>
-                  </a>
+                  {/* </a> */}
                 </li>
                 <li>
-                  <a href="#">
+                  {/* <a href="#"> */}
                     <i className="fa fa-twitter"></i>
-                  </a>
+                  {/* </a> */}
                 </li>
                 <li>
-                  <a href="#">
+                  {/* <a href="#"> */}
                     <i className="fa fa-dribbble"></i>
-                  </a>
+                  {/* </a> */}
                 </li>
                 <li>
-                  <a href="#">
+                  {/* <a href="#"> */}
                     <i className="fa fa-behance"></i>
-                  </a>
+                  {/* </a> */}
                 </li>
               </ul>
             </div>

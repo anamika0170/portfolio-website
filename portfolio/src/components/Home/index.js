@@ -27,7 +27,7 @@ const Home = () => {
                 <p key={designation}>{`•  ${designation}`}</p>
               ))}
           </div>
-          <Button href="#about" variant="contained" className="learnMore">
+          <Button  variant="contained" className="learnMore">
             <Link
               spy={true}
               smooth={true}
